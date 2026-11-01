@@ -4,8 +4,8 @@
 \campo{Sirve para}{resolver casi cualquier problema de substrings en O(n):
 contarlas, contarlas distintas, buscar ocurrencias, obtener la substring
 común más larga y la k-ésima en orden lexicográfico.}
-\campo{Alfabeto}{el código usa solo letras \codigo{a}--\codigo{z}. Si la
-entrada trae mayúsculas, conviértelas con \codigo{tolower} antes de construir.}
+\campo{Alfabeto}{usa \codigo{a}--\codigo{z}; las mayúsculas se convierten
+solas. Normaliza los demás símbolos antes.}
 \campo{Ejemplo de entrada}{\codigo{s p k}, por ejemplo \codigo{ababa aba 3}.}
 \campo{Complejidad}{construir O(n); cada consulta O(1) u O($|p|$); la
 k-ésima substring es O(largo\_respuesta $\times 26$).}
@@ -82,9 +82,6 @@ grande y llama únicamente a las funciones que necesites.
   \item \codigo{occ} se calcula al construir. No hace falta llamar a ninguna
         función extra, pero no agregues caracteres después con \codigo{extend}
         sin reconstruir el autómata.
-  \item Para varias consultas, construye el SAM \textbf{una vez} y reutilízalo;
-        no lo construyas dentro de cada consulta.
   \item Si el alfabeto no es \codigo{a}--\codigo{z}, cambia \codigo{ALPHA}
-        y la conversión \codigo{ch - 'a'}. Si \codigo{n} es enorme y el
-        alfabeto es grande, usa una versión con \codigo{map<char,int>}.
+        e \codigo{id}.
 \end{itemize}
