@@ -1,0 +1,23 @@
+\Needspace{12\baselineskip}
+\subsection{Hash doble: comparar substrings rápido}\label{rec:hash}
+
+\campo{Sirve para}{comparar dos pedazos de un string en O(1), calcular el
+largo del prefijo común (LCP) y buscar patrones con búsqueda binaria.}
+\campo{Entrada}{un string \codigo{s}, una cantidad de consultas \codigo{q} y
+cada consulta con dos rangos \codigo{l1 r1 l2 r2}.}
+\campo{Salida}{\codigo{SI} si \codigo{s[l1..r1)} es igual a
+\codigo{s[l2..r2)}, o \codigo{NO} si no.}
+\complejidad{Preprocesar O(n); cada comparación O(1); cada LCP O(log n).}
+
+\lstinputlisting{codigo/hash.cpp}
+
+\subsubsection*{Los rangos son medios abiertos}
+
+\codigo{[l, r)} significa: incluye \codigo{l} y \textbf{no} incluye
+\codigo{r}. Por eso \codigo{s[l..r)} se escribe \codigo{s.substr(l, r - l)}.
+Un rango vacío es \codigo{l == r}.
+
+\ojo{El hash es probabilístico: con dos módulos la probabilidad de error es
+prácticamente nula, pero no es cero. Si el problema exige certeza absoluta,
+usa un autómata de sufijos o compara los strings de verdad. No uses un solo
+módulo si puedes evitarlo.}

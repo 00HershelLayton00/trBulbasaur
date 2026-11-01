@@ -1,0 +1,90 @@
+\Needspace{14\baselineskip}
+\subsection{Suffix Automaton: la estructura estrella}\label{rec:sam}
+
+\campo{Sirve para}{resolver casi cualquier problema de substrings en O(n):
+contarlas, contarlas distintas, buscar ocurrencias, obtener la substring
+común más larga y la k-ésima en orden lexicográfico.}
+\campo{Alfabeto}{el código usa solo letras \codigo{a}--\codigo{z}. Si la
+entrada trae mayúsculas, conviértelas con \codigo{tolower} antes de construir.}
+\campo{Ejemplo de entrada}{\codigo{s p k}, por ejemplo \codigo{ababa aba 3}.}
+\campo{Complejidad}{construir O(n); cada consulta O(1) u O($|p|$); la
+k-ésima substring es O(largo\_respuesta $\times 26$).}
+
+\subsubsection*{La idea sin teoría}
+
+El autómata es un grafo de estados. Cada camino desde el estado inicial
+forma un substring de \codigo{s}, y todos los substrings están representados
+sin guardarlos uno por uno. Los estados se agrupan por el conjunto de
+posiciones donde terminan sus substrings. Eso permite contar ocurrencias y
+responder consultas con muy poco código adicional.
+
+\begin{itemize}
+  \item \codigo{len[v]}: largo del substring más largo del estado \codigo{v}.
+  \item \codigo{link[v]}: enlace al estado del sufijo propio más largo.
+  \item \codigo{next[v][c]}: a qué estado se va al agregar el carácter
+        \codigo{c}.
+  \item \codigo{occ[v]}: cuántas veces aparece cada substring de \codigo{v}
+        en \codigo{s}. Se calcula automáticamente al construir.
+\end{itemize}
+
+\subsubsection*{Funciones que ya vienen listas}
+
+{\small
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.41\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{El problema pide...} & \textbf{Usa...} \\
+\midrule
+substrings distintas & \codigo{sam.distinct_substrings()} \\
+ocurrencias de un patrón & \codigo{sam.count_occurrences(p)} \\
+substring común más larga & \codigo{sam.longest_common_substring(p)} \\
+k-ésima substring lexicográfica & \codigo{sam.kth_distinct(k)} \\
+substrings con al menos k apariciones & \codigo{sam.distinct_with_min_occ(k)} \\
+\bottomrule
+\end{tabularx}
+}
+
+\lstinputlisting{codigo/suffix_automaton.cpp}
+
+\subsubsection*{Cómo usarlo en tu \codigo{main}}
+
+\begin{lstlisting}
+SuffixAutomaton sam(s);              // s en minusculas, una sola vez
+
+long long total = sam.distinct_substrings();
+int veces = sam.count_occurrences(patron);
+int lcs = sam.longest_common_substring(otro);
+string kth = sam.kth_distinct(k);    // k empieza en 1
+long long repetidas = sam.distinct_with_min_occ(2);
+\end{lstlisting}
+
+\subsubsection*{Ejemplo del \codigo{main} incluido}
+
+Con la entrada \codigo{ababa aba 3}, el programa imprime:
+
+\begin{lstlisting}
+Distintas: 9
+Ocurrencias de p: 2
+LCS con p: 3
+k-esima: aba
+Con >=2 ocurrencias: 5
+\end{lstlisting}
+
+Así puedes comprobar que copiaste todo bien. En el juez, cambia el
+\codigo{main} por el del problema: construye \codigo{sam} con el string
+grande y llama únicamente a las funciones que necesites.
+
+\subsubsection*{Avisos importantes}
+
+\begin{itemize}
+  \item \codigo{kth_distinct} devuelve \codigo{""} si \codigo{k} no existe.
+        Solo se garantiza hasta \codigo{k <= 10^18}.
+  \item \codigo{occ} se calcula al construir. No hace falta llamar a ninguna
+        función extra, pero no agregues caracteres después con \codigo{extend}
+        sin reconstruir el autómata.
+  \item Para varias consultas, construye el SAM \textbf{una vez} y reutilízalo;
+        no lo construyas dentro de cada consulta.
+  \item Si el alfabeto no es \codigo{a}--\codigo{z}, cambia \codigo{ALPHA}
+        y la conversión \codigo{ch - 'a'}. Si \codigo{n} es enorme y el
+        alfabeto es grande, usa una versión con \codigo{map<char,int>}.
+\end{itemize}

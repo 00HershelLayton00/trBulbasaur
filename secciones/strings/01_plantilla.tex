@@ -1,0 +1,15 @@
+\Needspace{14\baselineskip}
+\subsection{Plantilla base: todo programa empieza aquí}\label{rec:plantilla}
+
+\campo{Sirve para}{tener un programa que ya compila y ejecuta. Siempre se
+empieza desde aquí.}
+\campo{Qué cambiar}{la parte de leer, la llamada a la receta y la parte de
+imprimir. El resto se deja igual.}
+\campo{Salida del ejemplo}{el largo del string leído.}
+
+\lstinputlisting{codigo/plantilla.cpp}
+
+\ojo{Si el problema tiene varios casos, envuelve el cuerpo del \codigo{main}
+en un \codigo{while (t--)} y lee la cantidad de casos \codigo{t} al inicio.
+No mezcles \codigo{cin >>} con \codigo{getline} sin leer el problema de
+lectura en la receta siguiente.}

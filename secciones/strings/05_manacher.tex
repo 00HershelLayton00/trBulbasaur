@@ -1,0 +1,31 @@
+\Needspace{12\baselineskip}
+\subsection{Manacher: palíndromos en O(n)}\label{rec:manacher}
+
+\campo{Sirve para}{encontrar el palíndromo más largo, contar palíndromos o
+responder preguntas sobre palíndromos centrados en una posición.}
+\campo{Entrada}{una palabra sin espacios.}
+\campo{Salida}{el palíndromo más largo, su largo y la cantidad total de
+substrings palindrómicas (contando repetidas).}
+\complejidad{O(n).}
+
+\lstinputlisting{codigo/manacher.cpp}
+
+\subsubsection*{Cómo leer \codigo{d1} y \codigo{d2}}
+
+\begin{itemize}
+  \item \codigo{d1[i]}: radio de palíndromos de largo impar con centro en
+        \codigo{i}. El largo es \codigo{2*d1[i] - 1} y el inicio es
+        \codigo{i - d1[i] + 1}.
+  \item \codigo{d2[i]}: radio de palíndromos de largo par centrados entre
+        \codigo{i-1} e \codigo{i}. El largo es \codigo{2*d2[i]} y el inicio
+        es \codigo{i - d2[i]}.
+\end{itemize}
+
+El struct ya trae dos atajos listos: \codigo{longest()} devuelve
+\texttt{\{inicio, largo\}} y \codigo{count_all()} suma todos los
+palíndromos contando apariciones repetidas.
+
+\ojo{Si el problema pide palíndromos \textbf{distintos}, \codigo{count_all}
+no sirve directamente: hay que eliminar duplicados con un palindromic tree
+o con hashing. Para el más largo y para consultar centros, Manacher es
+exacto y muy rápido.}

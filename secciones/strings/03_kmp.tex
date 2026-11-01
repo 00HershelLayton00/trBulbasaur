@@ -1,0 +1,27 @@
+\Needspace{12\baselineskip}
+\subsection{KMP: buscar un patrón}\label{rec:kmp}
+
+\campo{Sirve para}{encontrar todas las apariciones de un patrón dentro de un
+texto, incluso si se solapan. También calcula prefijos que son sufijos.}
+\campo{Entrada}{dos palabras sin espacios: \codigo{texto} y \codigo{patron}.}
+\campo{Salida}{las posiciones donde empieza el patrón, contando desde 0.}
+\complejidad{O(n + m), con n = largo del texto y m = largo del patrón.}
+
+\lstinputlisting{codigo/kmp.cpp}
+
+\subsubsection*{Qué significa \codigo{pi}}
+
+\codigo{pi[i]} es el largo del prefijo más largo de \codigo{pat[0..i]} que
+también es sufijo de ese mismo pedazo. Por ejemplo, para \codigo{"ababa"}:
+
+\[
+  \codigo{pi} = [\,0,\,0,\,1,\,2,\,3\,].
+\]
+
+El último valor, \codigo{pi[m-1]}, es el borde más largo del patrón. El
+período más pequeño es \codigo{m - pi[m-1]}. Si el período divide a
+\codigo{m}, el patrón está formado por repeticiones de ese bloque.
+
+\ojo{Si solo necesitas saber si el patrón aparece una vez, también puedes
+usar \codigo{s.find(pat) != string::npos}. KMP conviene cuando hay muchos
+patrones, textos largos o se piden todas las posiciones.}
