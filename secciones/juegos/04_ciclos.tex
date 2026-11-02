@@ -1,0 +1,15 @@
+\subsection{Juegos con ciclos: análisis retrógrado}\label{rec:ciclos}
+
+Un estado sin movimientos pierde. Si puedo mover a un estado perdedor,
+gano; si todos mis movimientos llevan a estados ganadores, pierdo. Lo que
+queda es empate.
+
+\tablafunc{
+\codigo{solve_cyclic_game(n, g)} & 1 = gana, $-1$ = pierde, 0 = empate & $O(V+E)$ \\
+}
+
+\lstinputlisting{codigo/cyclic_game.cpp}
+
+\ojo{Sirve para juegos con tableros y movimientos que pueden repetir
+estados. Si el grafo es un DAG, no hay empates y puedes usar Grundy en vez
+de esta función.}

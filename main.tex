@@ -2,28 +2,25 @@
 % BULBASAUR - TEAM REFERENCE
 % Compilar con: make
 % ============================================================
-\documentclass[9pt,a4paper,twocolumn]{extarticle}
+\documentclass[9pt,a4paper,landscape]{extarticle}
 \input{estilo.tex}
 
 \begin{document}
 
-\twocolumn[{%
 \thispagestyle{plain}
-\vspace*{-4mm}
 \begin{center}
-  {\sffamily\bfseries\fontsize{31}{33}\selectfont BULBASAUR}\\[1pt]
-  {\sffamily\large TEAM REFERENCE \textperiodcentered{} ICPC}\\[1pt]
-  {\sffamily\normalsize Capítulo 1: Strings \textperiodcentered{} Edición 2026}\\[2pt]
+  {\sffamily\bfseries\fontsize{27}{29}\selectfont BULBASAUR}\\[1pt]
+  {\sffamily\large TEAM REFERENCE \textperiodcentered{} ICPC \textperiodcentered{} Edición 2026}\\[2pt]
   \rule{\linewidth}{1.1pt}
 \end{center}
 
-\vspace{1mm}
 \input{secciones/00_como_usar.tex}
-\vspace{1mm}
-\rule{\linewidth}{0.35pt}
-\vspace{1mm}
-}]
 
+\vspace{1mm}
+\begin{multicols}{3}
 \input{secciones/01_strings.tex}
+\input{secciones/02_juegos.tex}
+\input{secciones/03_flujo.tex}
+\end{multicols}
 
 \end{document}

@@ -4,6 +4,8 @@ FLAGS = -interaction=nonstopmode -halt-on-error
 DEPS = main.tex estilo.tex \
        $(wildcard secciones/*.tex) \
        $(wildcard secciones/strings/*.tex) \
+       $(wildcard secciones/juegos/*.tex) \
+       $(wildcard secciones/flujo/*.tex) \
        $(wildcard codigo/*.cpp)
 
 all: main.pdf

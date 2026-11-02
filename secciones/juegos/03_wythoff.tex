@@ -1,0 +1,16 @@
+\subsection{Wythoff: dos pilas}\label{rec:wythoff}
+
+Se puede quitar cualquier cantidad de una pila, o la misma cantidad de las
+dos. Las posiciones perdedoras son
+$(\lfloor k\varphi \rfloor,\lfloor k\varphi \rfloor+k)$.
+
+\tablafunc{
+\codigo{floor_phi(d)} & $\lfloor d\varphi \rfloor$ sin error de coma flotante & $O(\log d)$ \\
+\codigo{wythoff_win(a, b)} & ¿gana el primero? & $O(\log d)$ \\
+}
+
+\lstinputlisting{codigo/wythoff.cpp}
+
+\ojo{El código usa \codigo{__int128} y búsqueda binaria para no depender de
+la precisión de \codigo{double}. Si \codigo{a == floor\_phi(b-a)} (con
+\codigo{a <= b}), la posición es perdedora.}

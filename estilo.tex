@@ -7,13 +7,14 @@
 \usepackage{microtype}
 \usepackage[
   a4paper,
-  top=1.25cm,
-  bottom=1.25cm,
-  left=1.15cm,
-  right=1.15cm,
-  headheight=10pt,
-  headsep=4pt,
-  footskip=11pt
+  landscape,
+  top=1.0cm,
+  bottom=1.0cm,
+  left=1.0cm,
+  right=1.0cm,
+  headheight=9pt,
+  headsep=3pt,
+  footskip=9pt
 ]{geometry}
 
 \usepackage{amsmath,amssymb}
@@ -26,20 +27,22 @@
 \usepackage{fancyhdr}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{multicol}
 \usepackage[hidelinks]{hyperref}
 
 % ---------- Columnas ----------
-\setlength{\columnsep}{6.5mm}
+\setlength{\columnsep}{4.2mm}
 \setlength{\columnseprule}{0.35pt}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2.2pt}
+\setlength{\parskip}{2pt}
+\raggedcolumns
 \raggedbottom
 
 % ---------- Cabeceras ----------
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\footnotesize\sffamily\bfseries Bulbasaur}
-\fancyhead[R]{\footnotesize\sffamily Team Reference \textperiodcentered{} Cap. 1: Strings}
+\fancyhead[R]{\footnotesize\sffamily Team Reference}
 \fancyfoot[C]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{0.35pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -71,7 +74,7 @@
 % ---------- Código C++ ----------
 \lstdefinestyle{cpp}{
   language=C++,
-  basicstyle=\ttfamily\fontsize{6.45}{7.35}\selectfont,
+  basicstyle=\ttfamily\fontsize{6.45}{7.15}\selectfont,
   keywordstyle=\bfseries,
   commentstyle=\itshape,
   stringstyle=\ttfamily,
@@ -86,8 +89,8 @@
   keepspaces=true,
   tabsize=2,
   upquote=true,
-  aboveskip=3pt,
-  belowskip=3pt,
+  aboveskip=2pt,
+  belowskip=2pt,
   xleftmargin=2pt,
   framexleftmargin=0pt,
   frame=none
@@ -102,3 +105,19 @@
 
 \setlist[itemize]{leftmargin=1.05em,itemsep=0.5pt,topsep=1.5pt,parsep=0pt}
 \setlist[enumerate]{leftmargin=1.25em,itemsep=1pt,topsep=1.5pt,parsep=0pt}
+
+% ---------- Tabla de funciones ----------
+\newcommand{\tablafunc}[1]{%
+  \par\vspace{2pt}%
+  \begingroup
+  \scriptsize\renewcommand{\arraystretch}{1.05}%
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.44\linewidth}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{0.22\linewidth}@{}}
+  \toprule
+  \textbf{Función} & \textbf{Qué hace / devuelve} & \textbf{Tiempo}\\
+  \midrule
+  #1
+  \bottomrule
+  \end{tabularx}%
+  \endgroup
+  \par\vspace{2pt}%
+}

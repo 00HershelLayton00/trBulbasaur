@@ -1,0 +1,15 @@
+\subsection{Nim y misère Nim}\label{rec:nim}
+
+Varias pilas; en cada turno se quita cualquier cantidad positiva de una
+sola pila. En misère, el que toma la última piedra pierde.
+
+\tablafunc{
+\codigo{nim_win(piles)} & ¿gana el primero? & $O(n)$ \\
+\codigo{misere_nim_win(piles)} & versión misère & $O(n)$ \\
+\codigo{nim_move(piles)} & \texttt{\{pila, nuevo tamaño\}} que deja XOR 0 & $O(n)$ \\
+}
+
+\lstinputlisting{codigo/nim.cpp}
+
+\ojo{En misère, si todas las pilas son 0 o 1, gana el primero cuando la
+cantidad de pilas es par. En otro caso se juega como Nim normal.}

@@ -1,0 +1,18 @@
+\subsection{Dinic: flujo máximo y corte mínimo}\label{rec:dinic}
+
+Grafo dirigido con capacidades \codigo{long long}. Devuelve el flujo máximo.
+Después del flujo, \codigo{min_cut(s)} marca el lado S del corte mínimo.
+
+\tablafunc{
+\codigo{Dinic(n)} & crea un grafo con \codigo{n} nodos & $O(n)$ \\
+\codigo{add_edge(u, v, cap)} & agrega arista dirigida con capacidad & $O(1)$ \\
+\codigo{max_flow(s, t)} & valor del flujo máximo & $O(V^2E)$ \\
+\codigo{min_cut(s)} & lado S después de saturar & $O(V+E)$ \\
+\codigo{cut_edges(s)} & aristas originales que cruzan el corte & $O(V+E)$ \\
+}
+
+\lstinputlisting{codigo/dinic.cpp}
+
+\ojo{Para capacidades unitarias en una red bipartita, Hopcroft-Karp es más
+simple. Para vértices con capacidad, divide cada vértice en entrada y salida
+con una arista de capacidad.}

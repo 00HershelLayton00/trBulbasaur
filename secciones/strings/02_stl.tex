@@ -1,22 +1,21 @@
-\Needspace{10\baselineskip}
-\subsection{Operaciones de string que ya existen}
+\subsection{Operaciones de string}
 
-No hace falta programar lo básico: C++ ya trae estas operaciones.
+C++ ya trae lo básico. Las posiciones empiezan en 0.
 
-{\small
-\renewcommand{\arraystretch}{1.08}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}X@{}}
+{\scriptsize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.39\linewidth}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Quiero...} & \textbf{Escribo...} \\
 \midrule
 leer una palabra & \codigo{cin >> s;} \\
 leer una línea con espacios & \codigo{getline(cin, s);} \\
-saber su largo & \codigo{s.size()} \\
-ver el carácter i & \codigo{s[i]} (i empieza en 0) \\
+largo & \codigo{s.size()} \\
+carácter i & \codigo{s[i]} \\
 copiar un pedazo & \codigo{s.substr(pos, len);} \\
 buscar un texto & \codigo{s.find(t)} \\
 agregar al final & \codigo{s += t;} \\
-recorrer todos los caracteres & \codigo{for (char c : s)} \\
+recorrer & \codigo{for (char c : s)} \\
 invertir & \codigo{reverse(s.begin(), s.end());} \\
 ordenar & \codigo{sort(s.begin(), s.end());} \\
 \bottomrule
@@ -25,8 +24,7 @@ ordenar & \codigo{sort(s.begin(), s.end());} \\
 
 \subsubsection*{Leer una línea después de un número}
 
-\codigo{cin >> n} deja el salto de línea pendiente. Antes de \codigo{getline}
-hay que consumirlo:
+\codigo{cin >> n} deja el salto pendiente. Consúmelo antes de \codigo{getline}:
 
 \begin{lstlisting}
 int n;
@@ -36,6 +34,5 @@ string linea;
 getline(cin, linea);  // ahora si lee la linea completa
 \end{lstlisting}
 
-\ojo{\codigo{s.find(t)} devuelve \codigo{string::npos} cuando no encuentra
-\codigo{t}. Las posiciones que devuelven \codigo{find}, KMP y Z son
-0-based. Si el problema numera desde 1, imprime \codigo{pos + 1}.}
+\ojo{\codigo{s.find(t)} devuelve \codigo{string::npos} si no encuentra
+\codigo{t}. Si el problema cuenta desde 1, imprime \codigo{pos + 1}.}

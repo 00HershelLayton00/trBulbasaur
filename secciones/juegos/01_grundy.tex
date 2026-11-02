@@ -1,0 +1,17 @@
+\subsection{Grundy y Sprague-Grundy}\label{rec:grundy}
+
+Un juego imparcial se parte en componentes independientes. El SG de una
+posición es el \codigo{mex} de los SG de sus movimientos. Si el XOR de los SG
+de las componentes es distinto de 0, gana el primero.
+
+\tablafunc{
+\codigo{mex(v)} & menor entero no negativo que no está en \codigo{v} & $O(k)$ \\
+\codigo{subtraction_grundy} & SG de una pila de 0 a \codigo{n} & $O(nm)$ \\
+\codigo{GrundyDAG::calc()} & SG de un DAG (o \texttt{\{\}} si hay ciclo) & $O(V+E)$ \\
+}
+
+\lstinputlisting{codigo/grundy.cpp}
+
+\ojo{Para varias pilas o componentes, combina con XOR:
+\texttt{g = g1 \textasciicircum{} g2 \textasciicircum{} ...}. Si
+\codigo{g != 0} gana el primero. Un estado terminal tiene SG 0.}

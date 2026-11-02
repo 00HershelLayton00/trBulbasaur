@@ -1,43 +1,32 @@
-\begin{minipage}[t]{0.535\linewidth}
+\begin{minipage}[t]{0.315\linewidth}
 {\sffamily\bfseries\small CÓMO USAR ESTE CUADERNO}\par\vspace{2pt}
-\begin{enumerate}[leftmargin=1.35em,itemsep=1.2pt,topsep=0pt]
-  \item Copia la \textbf{plantilla base} en un archivo \codigo{main.cpp}.
-  \item Busca la receta según el problema en el \textbf{mapa rápido}.
-  \item Pega el \texttt{struct} o las funciones de la receta.
-  \item En \codigo{main}, lee los datos, llama a la función y muestra el
-        resultado con \codigo{cout}.
+\begin{enumerate}[leftmargin=1.25em,itemsep=0.8pt,topsep=0pt]
+  \item Copia la \textbf{plantilla base} en \codigo{main.cpp}.
+  \item Busca el algoritmo y copia el \texttt{struct} o sus funciones.
+  \item Lee los datos y llama a las funciones que necesites.
+  \item Imprime el resultado. Si el problema usa índices desde 1,
+        suma 1 al imprimir.
 \end{enumerate}
-\vspace{2pt}
-{\footnotesize
-No hace falta entender todo el código: las recetas ya están probadas.
-Cambia solamente lo que dice \textbf{Entrada} y \textbf{Salida}.
-Cada receta incluye un \codigo{main} de ejemplo; ese \codigo{main} se puede
-borrar cuando ya tengas el tuyo.\par}
-\vspace{2pt}
-{\sffamily\bfseries\small REGLA DE ORO}\par\vspace{1pt}
-{\footnotesize
-Si el problema pide posiciones y usa 1-based, imprime \codigo{pos + 1}.
-Todos los índices de este cuaderno empiezan en 0.\par}
-\vspace{1pt}
-{\footnotesize\textbf{Si algo falla:} revisa la lectura, el 0/1-based,
-el uso de \codigo{long long} y que el SAM reciba minúsculas.\par}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.44\linewidth}
-{\sffamily\bfseries\small MAPA RÁPIDO: ¿QUÉ NECESITO?}\par\vspace{2pt}
-\begin{itemize}[leftmargin=1.1em,itemsep=0.8pt,topsep=0pt]
-  \item ¿Aparece un patrón? \hfill \textbf{KMP}
-  \item ¿Prefijos que también son sufijos? \hfill \textbf{KMP}
-  \item ¿Patrón en texto, versión corta? \hfill \textbf{Z}
-  \item ¿Palíndromos? \hfill \textbf{Manacher}
-  \item ¿Comparar substrings rápido? \hfill \textbf{Hash}
-  \item ¿Substrings distintas, ocurrencias, LCS? \hfill \textbf{SAM}
-\end{itemize}
-\vspace{2pt}
-{\sffamily\bfseries\small COMPILAR Y EJECUTAR}\par\vspace{1pt}
-{\ttfamily\fontsize{6.7}{8.2}\selectfont
+\begin{minipage}[t]{0.315\linewidth}
+{\sffamily\bfseries\small COMPILAR Y EJECUTAR}\par\vspace{2pt}
+{\ttfamily\fontsize{6.7}{8.1}\selectfont
 g++ -O2 -std=c++17 prog.cpp -o prog\par
 ./prog < entrada.txt > salida.txt\par}
+\vspace{2pt}
+{\footnotesize
+La primera línea compila; la segunda ejecuta. Si no usas archivos, ejecuta
+solamente \codigo{./prog}. Las tablas indican qué hace cada función y su
+complejidad.\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.315\linewidth}
+{\sffamily\bfseries\small CAPÍTULOS}\par\vspace{2pt}
+\begin{itemize}[leftmargin=1.1em,itemsep=0.8pt,topsep=0pt]
+  \item \textbf{1 Strings:} KMP, Z, Manacher, hash y Suffix Automaton.
+  \item \textbf{2 Juegos:} Grundy, Nim, Wythoff y juegos con ciclos.
+  \item \textbf{3 Flujo y matching:} Dinic, bipartito y Blossom general.
+\end{itemize}
 \vspace{1pt}
-{\footnotesize La primera línea compila; la segunda ejecuta. Si no usas
-archivos, ejecuta solamente \codigo{./prog}.\par}
+{\footnotesize\textbf{Regla de oro:} ante la duda, prueba un caso mínimo y
+revisa la lectura antes de cambiar el algoritmo.\par}
 \end{minipage}

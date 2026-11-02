@@ -1,39 +1,15 @@
-\Needspace{12\baselineskip}
 \subsection{Z-function: prefijos repetidos}\label{rec:z}
 
-\campo{Sirve para}{saber, para cada posición, cuántos caracteres coinciden
-con el comienzo del string. Es una alternativa corta a KMP.}
-\campo{Entrada}{dos palabras sin espacios: \codigo{texto} y \codigo{patron}.}
-\campo{Salida}{posiciones 0-based donde aparece el patrón.}
-\complejidad{O(n + m).}
+\codigo{z[i]} es el largo del prefijo más largo de \codigo{s} que coincide
+con \codigo{s[i..]}. Para buscar un patrón se usa
+\texttt{t = patron + '\#' + texto}.
+
+\tablafunc{
+\codigo{z_function(s)} & arreglo \codigo{z} del string \codigo{s} & $O(n)$ \\
+patrón con \texttt{pat + '\#' + text} & posiciones donde \codigo{z[i] == m} & $O(n+m)$ \\
+}
 
 \lstinputlisting{codigo/z_function.cpp}
 
-\subsubsection*{Qué guarda \codigo{z}}
-
-\codigo{z[i]} es el largo del prefijo más largo de \codigo{s} que coincide
-con \codigo{s[i..]}. Por convención, \codigo{z[0] = 0}. Para buscar un
-patrón se construye:
-
-\[
-  \texttt{t = patron + '\#' + texto}.
-\]
-
-En las posiciones del texto, \codigo{z[i] == m} significa que ahí empieza
-una aparición completa del patrón.
-
-\subsubsection*{Cómo usarlo en tu \codigo{main}}
-
-\begin{lstlisting}
-string t = patron + "#" + texto;  // '#' no debe estar en las strings
-vector<int> z = z_function(t);
-for (int i = (int)patron.size() + 1; i < (int)t.size(); ++i)
-    if (z[i] == (int)patron.size()) {
-        int pos = i - (int)patron.size() - 1;
-        cout << pos << '\n';
-    }
-\end{lstlisting}
-
-\ojo{Si el string puede contener cualquier carácter, elige un separador que
-no aparezca (por ejemplo \texttt{'\$'} o un carácter especial). Si no, usa
-KMP. El separador debe ser distinto de todos los caracteres de entrada.}
+El separador \texttt{'\#'} debe ser un carácter que no aparezca en las
+strings. Si puede aparecer cualquiera, usa KMP.

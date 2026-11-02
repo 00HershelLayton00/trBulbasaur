@@ -1,0 +1,20 @@
+\subsection{Hopcroft-Karp: matching bipartito}\label{rec:hopcroft}
+
+Matching máximo en un grafo bipartito. Izquierda: \codigo{0..n-1}; derecha:
+\codigo{0..m-1}. El cover usa \codigo{0..n-1} para la izquierda y
+\codigo{n..n+m-1} para la derecha.
+
+\tablafunc{
+\codigo{HopcroftKarp(n, m)} & crea las dos particiones & $O(n+m)$ \\
+\codigo{add_edge(u, v)} & arista izquierda \codigo{u} -- derecha \codigo{v} & $O(1)$ \\
+\codigo{max_matching()} & tamaño del matching máximo & $O(E\sqrt V)$ \\
+\codigo{min_vertex_cover()} & cover mínimo (Kőnig) & $O(V+E)$ \\
+\codigo{max_independent_set()} & conjunto independiente máximo & $O(V+E)$ \\
+\codigo{min_path_cover_dag} & cobertura mínima de caminos en un DAG & $O(E\sqrt V)$ \\
+}
+
+\lstinputlisting{codigo/hopcroft_karp.cpp}
+
+\ojo{Si solo necesitas el tamaño del matching, \codigo{max_matching()} es
+suficiente. El cover y el independiente son complementarios: su tamaño suma
+\codigo{n + m}.}
