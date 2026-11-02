@@ -20,13 +20,49 @@ solamente \codigo{./prog}. Las tablas indican qué hace cada función y su
 complejidad.\par}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.315\linewidth}
-{\sffamily\bfseries\small CAPÍTULOS}\par\vspace{2pt}
+{\sffamily\bfseries\small REGLAS RÁPIDAS}\par\vspace{2pt}
 \begin{itemize}[leftmargin=1.1em,itemsep=0.8pt,topsep=0pt]
-  \item \textbf{1 Strings:} KMP, Z, Manacher, hash y Suffix Automaton.
-  \item \textbf{2 Juegos:} Grundy, Nim, Wythoff y juegos con ciclos.
-  \item \textbf{3 Flujo y matching:} Dinic, bipartito y Blossom general.
+  \item Todos los índices empiezan en 0.
+  \item Usa \codigo{long long} para contar.
+  \item Prueba el caso mínimo antes de dudar del algoritmo.
+  \item Revisa la lectura antes de cambiar el código.
 \end{itemize}
-\vspace{1pt}
-{\footnotesize\textbf{Regla de oro:} ante la duda, prueba un caso mínimo y
-revisa la lectura antes de cambiar el algoritmo.\par}
+\end{minipage}
+
+\vspace{2mm}
+{\sffamily\bfseries\small ÍNDICE POR PROBLEMA}\par\vspace{2pt}
+\begin{minipage}[t]{0.325\linewidth}
+{\sffamily\bfseries\footnotesize CAPÍTULO 1 · STRINGS
+\hfill p.\,\pageref{sec:strings}}\par\vspace{1pt}
+{\scriptsize
+\begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{0.25\linewidth}@{}}
+Armar y ejecutar un programa & p.\,\pageref{rec:plantilla}\\
+Leer y operar strings & p.\,\pageref{rec:stl}\\
+¿Aparece un patrón? (KMP) & p.\,\pageref{rec:kmp}\\
+Prefijos repetidos / patrón (Z) & p.\,\pageref{rec:z}\\
+¿Palíndromos? (Manacher) & p.\,\pageref{rec:manacher}\\
+Comparar substrings (Hash) & p.\,\pageref{rec:hash}\\
+Distintas, ocurrencias, LCS (SAM) & p.\,\pageref{rec:sam}\\
+\end{tabularx}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.325\linewidth}
+{\sffamily\bfseries\footnotesize CAPÍTULO 2 · JUEGOS
+\hfill p.\,\pageref{sec:juegos}}\par\vspace{1pt}
+{\scriptsize
+\begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{0.25\linewidth}@{}}
+Ganar un juego imparcial (Grundy) & p.\,\pageref{rec:grundy}\\
+Nim y misère Nim & p.\,\pageref{rec:nim}\\
+Dos pilas (Wythoff) & p.\,\pageref{rec:wythoff}\\
+¿Gana, pierde o empata? (ciclos) & p.\,\pageref{rec:ciclos}\\
+\end{tabularx}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.325\linewidth}
+{\sffamily\bfseries\footnotesize CAPÍTULO 3 · FLUJO Y MATCHING
+\hfill p.\,\pageref{sec:flujo}}\par\vspace{1pt}
+{\scriptsize
+\begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{0.25\linewidth}@{}}
+Flujo máximo y corte mínimo (Dinic) & p.\,\pageref{rec:dinic}\\
+Matching bipartito y cover (HK) & p.\,\pageref{rec:hopcroft}\\
+Matching general (Blossom) & p.\,\pageref{rec:blossom}\\
+\end{tabularx}}
 \end{minipage}

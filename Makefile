@@ -13,6 +13,7 @@ all: main.pdf
 main.pdf: $(DEPS)
 	$(LATEX) $(FLAGS) main.tex
 	$(LATEX) $(FLAGS) main.tex
+	$(LATEX) $(FLAGS) main.tex
 
 clean:
 	rm -f main.aux main.log main.out main.toc
