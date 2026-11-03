@@ -1,15 +1,16 @@
 \subsection{Blossom: matching general}\label{rec:blossom}
 
-Matching máximo en un grafo no bipartito (Edmonds). \codigo{add_edge}
+Matching máximo en un grafo no bipartito (Edmonds). \codigo{add}
 agrega la arista en ambos sentidos. Para \codigo{n} hasta unos 500.
 
 \tablafunc{
 \codigo{Blossom(n)} & crea el grafo & $O(n)$ \\
-\codigo{add_edge(u, v)} & arista no dirigida & $O(1)$ \\
-\codigo{max_matching()} & tamaño del matching máximo & $O(V^3)$ \\
-\codigo{match[i]} & pareja de \codigo{i}, o $-1$ & $O(1)$ \\
+\codigo{add(u, v)} & arista no dirigida & $O(1)$ \\
+\codigo{matching()} & tamaño del matching máximo & $O(V^3)$ \\
+\codigo{mt[i]} & pareja de \codigo{i}, o $-1$ & $O(1)$ \\
 }
 
+\copiar{el bloque \texttt{COPIA BLOSSOM}.}
 \lstinputlisting{codigo/blossom.cpp}
 
 \ojo{En un grafo bipartito no uses Blossom: Hopcroft-Karp es mucho más

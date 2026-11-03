@@ -4,12 +4,13 @@ Compara dos pedazos en O(1) y calcula LCP en O(log n). Los rangos son
 \codigo{[l, r)}: incluyen \codigo{l}, no incluyen \codigo{r}.
 
 \tablafunc{
-\codigo{StringHash(s)} & preprocesa \codigo{s} & $O(n)$ \\
+\codigo{Hash(s)} & preprocesa \codigo{s} & $O(n)$ \\
 \codigo{get(l, r)} & hash de \codigo{s[l..r)} & $O(1)$ \\
 \codigo{equal(l1, r1, l2, r2)} & ¿son iguales los dos rangos? & $O(1)$ \\
 \codigo{lcp(i, j)} & prefijo común de los sufijos \codigo{i}, \codigo{j} & $O(\log n)$ \\
 }
 
+\copiar{el bloque \texttt{COPIA HASH DOBLE}.}
 \lstinputlisting{codigo/hash.cpp}
 
 Es probabilístico: con dos módulos el error es prácticamente nulo. Para

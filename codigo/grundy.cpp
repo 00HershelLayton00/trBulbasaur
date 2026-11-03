@@ -1,85 +1,27 @@
-// GRUNDY / SPRAUGE-GRUNDY.
-// Juego imparcial sin ciclos: gana quien no puede mover pierde.
-// El SG de una posicion es el mex de los SG de sus sucesoras.
-// Varias componentes independientes se combinan con XOR de sus SG.
-#include <bits/stdc++.h>
-using namespace std;
+// ===== COPIA GRUNDY: todo este bloque =====
+int mex(const vector<int>&v){vector<char> s(sz(v)+1);
+  for(int x:v)if(x>=0&&x<=sz(v))s[x]=1;
+  int g=0; while(g<sz(s)&&s[g])++g; return g;}
 
-// Menor entero no negativo que no esta en v.
-int mex(const vector<int>& v) {
-    vector<char> seen(v.size() + 1, 0);
-    for (int x : v) {
-        if (x >= 0 && x <= (int)v.size()) seen[x] = 1;
-    }
-    int g = 0;
-    while (g < (int)seen.size() && seen[g]) ++g;
-    return g;
-}
-
-// Grafo dirigido sin ciclos. g[v] = estados a los que se puede mover.
-struct GrundyDAG {
-    int n;
-    vector<vector<int>> g;
-    GrundyDAG(int n_) : n(n_), g(n_) {}
-    void add_edge(int u, int v) { g[u].push_back(v); }
-
-    // Devuelve sg[v] para cada estado. Si hay un ciclo, devuelve {}.
-    vector<int> calc() const {
-        vector<int> indeg(n, 0), order;
-        for (int u = 0; u < n; ++u) {
-            for (int v : g[u]) ++indeg[v];
-        }
-        queue<int> q;
-        for (int i = 0; i < n; ++i) {
-            if (indeg[i] == 0) q.push(i);
-        }
-        while (!q.empty()) {
-            int u = q.front(); q.pop();
-            order.push_back(u);
-            for (int v : g[u]) {
-                if (--indeg[v] == 0) q.push(v);
-            }
-        }
-        if ((int)order.size() != n) return {};
-
-        vector<int> sg(n, 0), mark(n + 1, 0);
-        int stamp = 0;
-        for (int i = n - 1; i >= 0; --i) {
-            int u = order[i];
-            ++stamp;
-            for (int v : g[u]) {
-                if (sg[v] <= n) mark[sg[v]] = stamp;
-            }
-            int x = 0;
-            while (mark[x] == stamp) ++x;
-            sg[u] = x;
-        }
-        return sg;
-    }
+struct Grundy{int n; vector<vector<int>> g;
+  Grundy(int n):n(n),g(n){}
+  void add(int u,int v){g[u].pb(v);}
+  vector<int> calc(){vector<int> in(n),o;
+    forn(u,0,n)for(int v:g[u])++in[v];
+    queue<int> q; forn(i,0,n)if(!in[i])q.push(i);
+    while(!q.empty()){int u=q.front();q.pop();o.pb(u);
+      for(int v:g[u])if(--in[v]==0)q.push(v);}
+    if(sz(o)!=n)return {};
+    vector<int> sg(n),mk(n+1); int t=0;
+    rforn(i,0,n){int u=o[i]; ++t;
+      for(int v:g[u])if(sg[v]<=n)mk[sg[v]]=t;
+      int x=0; while(mk[x]==t)++x; sg[u]=x;}
+    return sg;}
 };
 
-// Juego de una pila: desde x se puede quitar cualquier move <= x.
-vector<int> subtraction_grundy(int max_n, const vector<int>& moves) {
-    vector<int> sg(max_n + 1, 0), mark(max_n + 1, 0);
-    for (int x = 1; x <= max_n; ++x) {
-        for (int mv : moves) {
-            if (mv <= x) mark[sg[x - mv]] = x;
-        }
-        int g = 0;
-        while (mark[g] == x) ++g;
-        sg[x] = g;
-    }
-    return sg;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;  // pila inicial y cantidad de movimientos
-    vector<int> moves(m);
-    for (int &x : moves) cin >> x;
-
-    vector<int> sg = subtraction_grundy(n, moves);
-    cout << "SG(" << n << ") = " << sg[n] << '\n';
-    cout << (sg[n] ? "Gana el primero" : "Gana el segundo") << '\n';
-    return 0;
-}
+vector<int> subgrundy(int N,const vector<int>&mv){
+  vector<int> sg(N+1),mk(N+1);
+  forn(x,1,N+1){for(int m:mv)if(m<=x)mk[sg[x-m]]=x;
+    int g=0; while(mk[g]==x)++g; sg[x]=g;}
+  return sg;}
+// ===== FIN GRUNDY =====

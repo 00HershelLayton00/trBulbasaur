@@ -5,10 +5,11 @@ con \codigo{s[i..]}. Para buscar un patrón se usa
 \texttt{t = patron + '\#' + texto}.
 
 \tablafunc{
-\codigo{z_function(s)} & arreglo \codigo{z} del string \codigo{s} & $O(n)$ \\
-patrón con \texttt{pat + '\#' + text} & posiciones donde \codigo{z[i] == m} & $O(n+m)$ \\
+\codigo{zfun(s)} & arreglo \codigo{z} del string \codigo{s} & $O(n)$ \\
+\codigo{zsearch(t, p)} & posiciones de \codigo{p} en \codigo{t} & $O(n+m)$ \\
 }
 
+\copiar{el bloque \texttt{COPIA Z-FUNCTION}; \codigo{zsearch} ya separa con \texttt{'\#'}.}
 \lstinputlisting{codigo/z_function.cpp}
 
 El separador \texttt{'\#'} debe ser un carácter que no aparezca en las

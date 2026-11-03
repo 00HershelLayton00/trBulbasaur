@@ -5,9 +5,10 @@ gano; si todos mis movimientos llevan a estados ganadores, pierdo. Lo que
 queda es empate.
 
 \tablafunc{
-\codigo{solve_cyclic_game(n, g)} & 1 = gana, $-1$ = pierde, 0 = empate & $O(V+E)$ \\
+\codigo{solve_game(n, g)} & 1 = gana, $-1$ = pierde, 0 = empate & $O(V+E)$ \\
 }
 
+\copiar{el bloque \texttt{COPIA JUEGOS CON CICLOS}.}
 \lstinputlisting{codigo/cyclic_game.cpp}
 
 \ojo{Sirve para juegos con tableros y movimientos que pueden repetir

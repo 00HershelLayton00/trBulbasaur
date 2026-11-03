@@ -4,10 +4,11 @@ Encuentra todas las apariciones de un patrón, incluso solapadas. Entrada:
 \codigo{texto patron}. Salida: posiciones 0-based.
 
 \tablafunc{
-\codigo{prefix_function(s)} & \codigo{pi[i]}: borde más largo de \codigo{s[0..i]} & $O(n)$ \\
-\codigo{kmp_search(text, pat)} & posiciones donde aparece \codigo{pat} & $O(n+m)$ \\
+\codigo{pref(s)} & \codigo{pi[i]}: borde más largo de \codigo{s[0..i]} & $O(n)$ \\
+\codigo{kmp(text, pat)} & posiciones donde aparece \codigo{pat} & $O(n+m)$ \\
 }
 
+\copiar{el bloque \texttt{COPIA KMP}. Devuelve las posiciones 0-based.}
 \lstinputlisting{codigo/kmp.cpp}
 
 El valor \codigo{pi[m-1]} es el borde más largo del patrón; el período más

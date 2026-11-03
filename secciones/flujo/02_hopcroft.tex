@@ -5,16 +5,17 @@ Matching máximo en un grafo bipartito. Izquierda: \codigo{0..n-1}; derecha:
 \codigo{n..n+m-1} para la derecha.
 
 \tablafunc{
-\codigo{HopcroftKarp(n, m)} & crea las dos particiones & $O(n+m)$ \\
-\codigo{add_edge(u, v)} & arista izquierda \codigo{u} -- derecha \codigo{v} & $O(1)$ \\
-\codigo{max_matching()} & tamaño del matching máximo & $O(E\sqrt V)$ \\
-\codigo{min_vertex_cover()} & cover mínimo (Kőnig) & $O(V+E)$ \\
-\codigo{max_independent_set()} & conjunto independiente máximo & $O(V+E)$ \\
-\codigo{min_path_cover_dag} & cobertura mínima de caminos en un DAG & $O(E\sqrt V)$ \\
+\codigo{HK(n, m)} & crea las dos particiones & $O(n+m)$ \\
+\codigo{add(u, v)} & arista izquierda \codigo{u} -- derecha \codigo{v} & $O(1)$ \\
+\codigo{matching()} & tamaño del matching máximo & $O(E\sqrt V)$ \\
+\codigo{cover()} & cover mínimo (Kőnig) & $O(V+E)$ \\
+\codigo{indep()} & conjunto independiente máximo & $O(V+E)$ \\
+\codigo{path_cover} & cobertura mínima de caminos en un DAG & $O(E\sqrt V)$ \\
 }
 
+\copiar{el bloque \texttt{COPIA HOPCROFT-KARP}.}
 \lstinputlisting{codigo/hopcroft_karp.cpp}
 
-\ojo{Si solo necesitas el tamaño del matching, \codigo{max_matching()} es
+\ojo{Si solo necesitas el tamaño del matching, \codigo{matching()} es
 suficiente. El cover y el independiente son complementarios: su tamaño suma
 \codigo{n + m}.}

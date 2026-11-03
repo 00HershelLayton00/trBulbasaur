@@ -1,22 +1,20 @@
-// PLANTILLA BASE. Copia este archivo y ejecutalo con:
-// g++ -O2 -std=c++17 programa.cpp -o programa
+// BLOQUE FIJO: copia esto una vez al inicio de tu programa.
 #include <bits/stdc++.h>
-using namespace std;
-using ll = long long;
+using namespace std; using ll=long long;
+#define all(x) (x).begin(),(x).end()
+#define sz(x) int((x).size())
+#define pb push_back
+#define eb emplace_back
+#define fi first
+#define se second
+#define forn(i,a,b) for(int i=(a);i<(b);++i)
+#define rforn(i,a,b) for(int i=(b)-1;i>=(a);--i)
+#define INF (1LL<<60)
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+// ===== PEGA AQUI EL BLOQUE DE LA RECETA (ANTES DE main) =====
 
-    // 1) LEER. cin >> s lee UNA palabra (se detiene en un espacio).
-    string s;
-    cin >> s;
-
-    // 2) RESOLVER. Pega aqui el struct/funcion de la receta.
-    //    Luego llamalo con los datos leidos.
-    int largo = (int)s.size();
-
-    // 3) IMPRIMIR. Cambia esto por lo que pida el problema.
-    cout << largo << '\n';
-    return 0;
+int main(){ios::sync_with_stdio(0);cin.tie(0);
+  string s; cin>>s;              // 1) LEER los datos del problema
+  int ans=sz(s);                 // 2) llamar a la funcion de la receta
+  cout<<ans<<'\n';               // 3) IMPRIMIR el resultado
 }

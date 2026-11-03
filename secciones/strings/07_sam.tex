@@ -2,19 +2,21 @@
 
 Resuelve casi todo sobre substrings en O(n). Usa \codigo{a}--\codigo{z};
 las mayúsculas se convierten solas. Se construye \textbf{una vez}:
-\codigo{SuffixAutomaton sam(s);}.
+\codigo{SAM sam(s);}.
 
 \tablafunc{
-\codigo{SuffixAutomaton(s)} & construye el autómata & $O(n)$ \\
-\codigo{distinct_substrings()} & substrings distintas & $O(n)$ \\
-\codigo{count_occurrences(p)} & veces que aparece \codigo{p} & $O(|p|)$ \\
-\codigo{longest_common_substring(t)} & substring común más larga & $O(|t|)$ \\
-\codigo{kth_distinct(k)} & k-ésima substring lexicográfica & $O(26|ans|)$ \\
-\codigo{distinct_with_min_occ(k)} & substrings con al menos \codigo{k} apariciones & $O(n)$ \\
+\codigo{SAM(s)} & construye el autómata & $O(n)$ \\
+\codigo{distinct()} & substrings distintas & $O(n)$ \\
+\codigo{count(p)} & veces que aparece \codigo{p} & $O(|p|)$ \\
+\codigo{lcs(t)} & substring común más larga & $O(|t|)$ \\
+\codigo{kth(k)} & k-ésima substring lexicográfica & $O(26|ans|)$ \\
+\codigo{min_occ(k)} & substrings con al menos \codigo{k} apariciones & $O(n)$ \\
 }
 
+\copiar{el struct completo marcado \texttt{COPIA SAM}. Aunque uses una sola
+función, copia todo el struct: las demás no estorban.}
 \lstinputlisting{codigo/suffix_automaton.cpp}
 
-\ojo{Memoria O($26n$). \codigo{kth_distinct} devuelve \codigo{""} si
+\ojo{Memoria O($26n$). \codigo{kth} devuelve \codigo{""} si
 \codigo{k} no existe (vale hasta \codigo{10^18}). No agregues caracteres
 después de construir sin recalcular \codigo{occ}.}

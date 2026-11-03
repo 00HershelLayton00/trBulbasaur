@@ -6,9 +6,10 @@ $(\lfloor k\varphi \rfloor,\lfloor k\varphi \rfloor+k)$.
 
 \tablafunc{
 \codigo{floor_phi(d)} & $\lfloor d\varphi \rfloor$ sin error de coma flotante & $O(\log d)$ \\
-\codigo{wythoff_win(a, b)} & ¿gana el primero? & $O(\log d)$ \\
+\codigo{wythoff(a, b)} & ¿gana el primero? & $O(\log d)$ \\
 }
 
+\copiar{el bloque \texttt{COPIA WYTHOFF}.}
 \lstinputlisting{codigo/wythoff.cpp}
 
 \ojo{El código usa \codigo{__int128} y búsqueda binaria para no depender de
