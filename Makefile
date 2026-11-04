@@ -6,6 +6,7 @@ DEPS = main.tex estilo.tex \
        $(wildcard secciones/strings/*.tex) \
        $(wildcard secciones/juegos/*.tex) \
        $(wildcard secciones/flujo/*.tex) \
+       $(wildcard secciones/mate/*.tex) \
        $(wildcard codigo/*.cpp)
 
 all: main.pdf

@@ -1,0 +1,32 @@
+\subsection{Inclusión-exclusión}\label{rec:ie}
+
+\[
+\left|\bigcup_{i=1}^{n}A_i\right|
+=\sum_i|A_i|-\sum_{i<j}|A_i\cap A_j|
++\sum_{i<j<k}|A_i\cap A_j\cap A_k|-\cdots
+\]
+
+Para contar “al menos una propiedad”, recorre las máscaras no vacías y suma
+con signo según el número de bits:
+
+\begin{lstlisting}
+ll ans=0;
+for(int mask=1;mask<(1<<n);++mask){
+  int b=__builtin_popcount(mask);
+  ans+=(b&1?1:-1)*f(mask);  // f(mask) = interseccion de esas propiedades
+}
+\end{lstlisting}
+
+\copiar{el bloque \texttt{COPIA COMBINATORIA}. Incluye binomios, Catalan,
+Stirling, Bell y desarreglos.}
+\lstinputlisting{codigo/combinatoria.cpp}
+
+\tablafunc{
+\codigo{Comb(N)} & factoriales e inversos hasta \codigo{N} & $O(N)$ \\
+\codigo{C(n,k)}, \codigo{P(n,k)} & binomio y permutaciones & $O(1)$ \\
+\codigo{H(n,k)} & soluciones no negativas de una suma & $O(1)$ \\
+\codigo{cat(n)} & número de Catalan & $O(\log M)$ \\
+\codigo{stirling2(n)} & fila \codigo{S(n,k)} & $O(n^2)$ \\
+\codigo{bell(n)} & número de Bell & $O(n^2)$ \\
+\codigo{der(n)} & desarreglos & $O(n)$ \\
+}

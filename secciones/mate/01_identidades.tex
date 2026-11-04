@@ -1,0 +1,21 @@
+\subsection{Binomio, Pascal y hockey stick}\label{rec:binomio}
+
+\begin{itemize}[leftmargin=1.05em,itemsep=1pt,topsep=1pt]
+  \item \textbf{Stick de hockey:}
+        $\displaystyle\sum_{i=k}^{n}\binom{i}{k}=\binom{n+1}{k+1}$.
+  \item \textbf{Pascal:}
+        $\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}$.
+  \item \textbf{Simetría:} $\binom{n}{k}=\binom{n}{n-k}$.
+  \item \textbf{Vandermonde:}
+        $\displaystyle\sum_i\binom{a}{i}\binom{b}{k-i}=\binom{a+b}{k}$.
+  \item \textbf{Absorción:}
+        $k\binom{n}{k}=n\binom{n-1}{k-1}$.
+  \item \textbf{Suma:} $\displaystyle\sum_{k=0}^{n}\binom{n}{k}=2^n$.
+  \item \textbf{Alternada:}
+        $\displaystyle\sum_{k=0}^{n}(-1)^k\binom{n}{k}=0$ para $n>0$.
+\end{itemize}
+
+\textbf{Estrellas y barras.} El número de soluciones no negativas de
+$x_1+\cdots+x_k=n$ es $\binom{n+k-1}{k-1}$. Si cada $x_i\ge 1$, es
+$\binom{n-1}{k-1}$. El multinomial es
+$\binom{n}{k_1,\dots,k_m}=\frac{n!}{k_1!\cdots k_m!}$.

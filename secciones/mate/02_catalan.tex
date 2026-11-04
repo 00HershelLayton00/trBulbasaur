@@ -1,0 +1,36 @@
+\subsection{Catalan, Stirling, Bell y desarreglos}\label{rec:catalan}
+
+\textbf{Catalan.} Cuenta paréntesis balanceados, caminos de Dyck y árboles
+binarios:
+\[
+C_n=\frac{1}{n+1}\binom{2n}{n}
+   =\binom{2n}{n}-\binom{2n}{n+1}.
+\]
+
+\textbf{Stirling de segunda especie.} \codigo{S(n,k)} cuenta las formas de
+partir \codigo{n} elementos en \codigo{k} bloques no vacíos:
+\[
+S(n,k)=k\,S(n-1,k)+S(n-1,k-1),\qquad S(0,0)=1.
+\]
+También:
+\[
+S(n,k)=\frac{1}{k!}\sum_{i=0}^{k}(-1)^{k-i}\binom{k}{i}i^n.
+\]
+
+\textbf{Bell.} \codigo{B_n} cuenta todas las particiones de \codigo{n}
+elementos:
+\[
+B_n=\sum_{k=0}^{n}S(n,k).
+\]
+
+\textbf{Desarreglos.} \codigo{D_n} cuenta permutaciones sin puntos fijos:
+\[
+D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}
+   =(n-1)(D_{n-1}+D_{n-2}).
+\]
+
+\textbf{Particiones de entero.} \codigo{p(n,k)} cuenta las particiones de
+\codigo{n} en exactamente \codigo{k} partes:
+\[
+p(n,k)=p(n-1,k-1)+p(n-k,k).
+\]

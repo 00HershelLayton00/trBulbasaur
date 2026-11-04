@@ -1,0 +1,27 @@
+\subsection{Fórmulas extra}\label{rec:extras}
+
+\textbf{Sobreyectivas.} Funciones de \codigo{n} elementos a \codigo{k}
+elementos que usan todos los valores:
+\[
+k!\,S(n,k)=\sum_{i=0}^{k}(-1)^i\binom{k}{i}(k-i)^n.
+\]
+
+\textbf{Cayley.} Árboles etiquetados con \codigo{n} vértices: $n^{n-2}$.
+
+\textbf{Composiciones.} Formas de escribir \codigo{n} como suma ordenada:
+\begin{itemize}[leftmargin=1.05em,itemsep=0.5pt,topsep=1pt]
+  \item en \codigo{k} partes positivas: $\binom{n-1}{k-1}$;
+  \item en cualquier cantidad de partes positivas: $2^{n-1}$.
+\end{itemize}
+
+\textbf{Lucas.} Si \codigo{p} es primo y
+$n=\sum n_i p^i$, $k=\sum k_i p^i$ en base \codigo{p}:
+\[
+\binom{n}{k}\equiv\prod_i\binom{n_i}{k_i}\pmod p.
+\]
+
+\textbf{Collares binarios.} Collares de largo \codigo{n} con dos colores:
+\[
+\frac{1}{n}\sum_{d\mid n}\varphi(d)\,2^{n/d},
+\]
+donde $\varphi$ es la función de Euler.
